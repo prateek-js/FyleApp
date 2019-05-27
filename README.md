@@ -11,4 +11,8 @@ Run app in devapp mode :- ionic serve --devapp
 Same app can be seen in mobile device also given that DevApp is installed on device and is under same internet network as in
 https://ionicframework.com/docs/appflow/devapp
 
-Build for Android :- 
+Build for Android & ios :- ionic cordova prepare ios/android 
+Run on device :- ionic cordova run ios -l/ ionic cordova run android -l
+
+
+Web App link:- https://fyleapp-50dd3.web.app/home
