@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bank Search
+    </ion-title>
+  </ion-toolbar>
+  <div class="outer-container">
+    <ion-item class="item-leave-height">
+      <ion-label>CITY</ion-label>
+      <ion-select placeholder="Select City" [(ngModel)]="selectedCity" (ionChange)="onSelectChange($event)">
+        <ion-select-option value="BANGALORE">Bangalore</ion-select-option>
+        <ion-select-option value="CHENNAI">Chennai</ion-select-option>
+        <ion-select-option value="MUMBAI">Mumbai</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-searchbar [(ngModel)]="searchBank" (ionChange)="searchChanged()"></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content ion-padding>
+  <div>
+    <ion-virtual-scroll [items]="filteredResults">
+      <ion-card class="ion-card-content" *virtualItem="let item; let itemBounds = bounds;">
+        <ion-col>
+          <ion-row>
+            <ion-label text-wrap>
+              Bank Name :
+              {{item.bank_name}}
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label text-wrap>
+              Branch :
+              {{item.branch}}
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label text-wrap>
+              IFSC :
+              {{item.ifsc}}
+            </ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-card>
+    </ion-virtual-scroll>
+    </div>
+    <ion-fab *ngIf="filteredResults.length > 0" vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="pageScroller()">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

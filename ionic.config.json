@@ -1,0 +1,7 @@
+{
+  "name": "fyleApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
